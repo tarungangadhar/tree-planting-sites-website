@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tree Planting Sites Identification — Tarun G. Vadaparthi</title>
+<meta name="description" content="Data-driven identification of optimal tree planting sites in Buffalo, NY">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbfbfd; --ink:#161a22; --sub:#5d6a7e; --line:#e8ecf3; --pill:#eef2ff;
+    --max:880px;
+  }
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.7}
+  .wrap{max-width:var(--max);margin:0 auto;padding:36px 20px}
+  h1{font-family:"Source Serif 4",Georgia,serif;font-weight:600;margin:.2rem 0}
+  h3{margin-top:32px}
+  .by{color:var(--sub);margin:.4rem 0 1rem}
+  .row{display:flex;gap:10px;flex-wrap:wrap;margin:.6rem 0 1.2rem}
+  .pill{display:inline-block;padding:8px 12px;border-radius:999px;background:var(--pill);border:1px solid var(--line);text-decoration:none;color:var(--ink);font-weight:600}
+  hr{border:none;border-top:1px solid var(--line);margin:26px 0}
+  figure{margin:18px 0}
+  figcaption{color:var(--sub);font-size:.9rem;margin-top:8px}
+  img, video{max-width:100%;height:auto;border:1px solid var(--line);border-radius:12px}
+  iframe.mapframe{
+    width:100%;
+    height:700px;   /* 👈 tall consistent maps */
+    border:1px solid var(--line);
+    border-radius:12px;
+    display:block;
+    margin:0 auto 28px;
+  }
+  footer{color:var(--sub);font-size:.9rem;margin:50px 0;text-align:center}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <!-- Title -->
+  <header>
+    <h1>Tree Planting Sites Identification</h1>
+    <div class="row">
+      <a class="pill" href="docs/Report.pdf" target="_blank">📄 Report (PDF)</a>
+      <a class="pill" href="https://github.com/tarungangadhar/tree-planting-sites" target="_blank">💻 Code</a>
+    </div>
+  </header>
+
+  <!-- Abstract -->
+  <section>
+    <hr>
+    <h3>Abstract</h3>
+    <p>
+      This project identifies <b>optimal urban tree planting sites</b> in Buffalo, NY using the Bureau of Forestry Tree Inventory dataset 
+      (133,000+ records). We applied <b>K-Means clustering</b>, <b>regression models</b>, and <b>decision tree classification</b> 
+      combined with <b>geospatial visualization</b> (heatmaps & interactive maps) to recommend zones for new plantations. 
+      Results highlight priority areas with low eco-benefits where strategic tree planting can maximize environmental impact.
+    </p>
+  </section>
+
+  <!-- Method -->
+  <section>
+    <hr>
+    <h3>Method Overview</h3>
+    <figure>
+      <img src="assets/method.png" alt="Method Overview Diagram">
+      <figcaption>Pipeline: Data cleaning → Clustering & regression → GIS visualization → Recommendations.</figcaption>
+    </figure>
+  </section>
+
+    <!-- Interactive Maps -->
+  <section>
+    <hr>
+    <h3>Interactive Maps</h3>
+    <p>Explore interactive results directly below (pan, zoom, and inspect data points):</p>
+    <iframe class="mapframe" src="cluster_heatmap.html" loading="lazy"></iframe>
+    <iframe class="mapframe" src="top_10_tree_planting_map.html" loading="lazy"></iframe>
+    <iframe class="mapframe" src="tree_planting_map.html" loading="lazy"></iframe>
+  </section>
+
+  <!-- Results -->
+  <section>
+    <hr>
+    <h3>Results</h3>
+    <figure>
+      <img src="assets/cluster_heatmap.png" alt="Cluster Heatmap">
+      <figcaption>Heatmap of eco-benefits and low-benefit clusters.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/cluster_map.png" alt="Cluster Map">
+      <figcaption>K-Means clustering of tree sites across Buffalo.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/top_10_tree_planting_map.png" alt="Top 10 Tree Planting Sites">
+      <figcaption>Recommended top 10 planting locations by benefit shortfall.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/tree_planting_map.png" alt="Tree Planting Map">
+      <figcaption>Interactive tree planting map with cluster overlays.</figcaption>
+    </figure>
+  </section>
+
+
+
+  <!-- Conclusion -->
+  <section>
+    <hr>
+    <h3>Conclusion</h3>
+    <p>
+      Our data-driven framework successfully highlights urban zones where tree planting can significantly 
+      improve environmental benefits such as CO₂ absorption and stormwater retention. The approach can 
+      be extended to other cities to guide <b>smart urban forestry planning</b>.
+    </p>
+  </section>
+
+  <footer>
+    © 2025 Tarun Gangadhar Vadaparthi
+  </footer>
+</main>
+</body>
+</html>
